@@ -41,3 +41,13 @@ Integration
 ![008](/images/008.png)
 
 ![009](/images/009.png)
+
+### 02 The Basics of Module Federation
+
+- Designate one app as the Host and one as the Remote
+- In the Remote, decide which modules (files) you want to make available to other projects
+- Set up Module Federation plugin to expose those files
+- In the Host, decide which files you want to get from the remote
+- Set up Module Federation plugin to fetch those files
+- In the Host, refactor the entry point to load asynchronously
+- In the Host, import whatever files you need from the remote
