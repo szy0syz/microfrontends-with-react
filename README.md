@@ -37,3 +37,5 @@ Integration
 ![007](/images/007.png)
 
 > oh yes! 微前端的核心在于 **“Integration”**
+
+![008](/images/008.png)
