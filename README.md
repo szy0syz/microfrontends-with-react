@@ -92,3 +92,19 @@ module.exports = {
 ```
 
 > 不得不说，ModuleFederation 真的 🐂 🦏 🐄 🐃 🐮
+
+![010](/images/010.png)
+
+![011](/images/011.png)
+
+![012](/images/012.png)
+
+![013](/images/013.png)
+
+![014](/images/014.png)
+
+![015](/images/015.png)
+
+![016](/images/016.png)
+
+### 03 Sharing Dependencies Between Apps
