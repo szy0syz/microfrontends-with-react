@@ -108,3 +108,11 @@ module.exports = {
 ![016](/images/016.png)
 
 ### 03 Sharing Dependencies Between Apps
+
+#### Using Shared Modules
+
+- Container fetches Products remoteEntry.js file
+- Container fetches Cart remoteEntry.js file
+- Container nodetices that both require Faker!
+- Container can choose to load only one copy from either Cart or Products
+- Single copy is made available to both Cart + Products
