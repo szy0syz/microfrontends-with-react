@@ -51,3 +51,44 @@ Integration
 - Set up Module Federation plugin to fetch those files
 - In the Host, refactor the entry point to load asynchronously
 - In the Host, import whatever files you need from the remote
+
+```js
+module.exports = {
+  mode: 'development',
+  devServer: {
+    port: 8080,
+  },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'container',
+      remotes: {
+        products: 'products@http://localhost:8081/remoteEntry.js',
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    }),
+  ],
+};
+
+module.exports = {
+  mode: 'development',
+  devServer: {
+    port: 8081,
+  },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'products',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './ProductsIndex': './src/index',
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    }),
+  ],
+};
+```
+
+> 不得不说，ModuleFederation 真的 🐂 🦏 🐄 🐃 🐮
