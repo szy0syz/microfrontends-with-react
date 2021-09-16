@@ -164,3 +164,45 @@ import('./bootstrap');
 - Singleton Loading
 - 如果开启了共享组件的版本指定后，在另一个 包 里使用其他版本组件，并设置了 shared ，则控制台会提示无法开启 `单例`
 - 其实这样就可以考虑 `lerna` 做包管理器，这样也方便很多
+
+```js
+new ModuleFederationPlugin({
+  name: 'products',
+  filename: 'remoteEntry.js',
+  exposes: {
+    './ProductsIndex': './src/index',
+  },
+  shared: [{
+    faker: {
+      singleton: true
+    }
+  }],
+}),
+```
+
+### Sub-App Execution Context
+
+```js
+// Context/Situation #1
+// We are running this file in development in isolation
+// We are using our local index.html file
+// Which DEFNITELY has an element with an id of 'dev-products
+// We want to immediately render our app into that element
+if (process.env.NODE_ENV === 'development') {
+  const el = document.querySelector('#dev-products');
+
+  // Assuming our container doesnt have an element
+  // with id 'dev-products'....
+  if (el) {
+    // We are probably running in isolation
+    mount(el);
+  }
+}
+
+// Context/Situation #2
+// We are running this file in develpment or production
+// through the CONTAINER app
+// NO GUARANTEE that an element with an id of 'dev-products' exists
+// WE DO NOT WANT try to immediately render the app
+export { mount };
+```
