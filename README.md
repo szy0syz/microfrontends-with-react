@@ -111,8 +111,33 @@ module.exports = {
 
 #### Using Shared Modules
 
+🚀 **需求**：在 N 个 Package 中共享一个模块，则配置 webpack 即可：
+
 - Container fetches Products remoteEntry.js file
 - Container fetches Cart remoteEntry.js file
 - Container nodetices that both require Faker!
 - Container can choose to load only one copy from either Cart or Products
 - Single copy is made available to both Cart + Products
+
+> 例如当前项目，我们在 products 和 cart 前端中都是用了 fake ，则我们可以将其提升一层，共享出来！
+>
+> 一样的，还是配置 `webpack` 的 `ModuleFederationPlugin` 即可。
+>
+> 配置后，两个子前端的包里就不会再压入 faker 代码了!
+
+```js
+// -> 两个子前端的配置都需要改
+new ModuleFederationPlugin({
+  name: 'products',
+  filename: 'remoteEntry.js',
+  exposes: {
+    './ProductsIndex': './src/index',
+  },
+  shared: ['faker'],
+}),
+```
+
+- Shared Module Versioning
+- Singleton Loading
+- 如果开启了共享组件的版本指定后，在另一个 包 里使用其他版本组件，并设置了 shared ，则控制台会提示无法开启 `单例`
+- 其实这样就可以考虑 `lerna` 做包管理器，这样也方便很多
