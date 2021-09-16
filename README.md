@@ -206,3 +206,8 @@ if (process.env.NODE_ENV === 'development') {
 // WE DO NOT WANT try to immediately render the app
 export { mount };
 ```
+
+我们有这么这个需求：
+
+- 在开发环境，直接访问项目地址可以独立渲染
+- 但生产环境，我们只导出挂载函数，又容器本身确定渲染到哪里
