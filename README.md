@@ -137,6 +137,29 @@ new ModuleFederationPlugin({
 }),
 ```
 
+但这样改了以后有个问题：我们的 `faker` 已不再当前 `子前端` 的 `bundle` 里了，直接访问项目就会出现这样问题：
+
+```bash
+main.js:829 Uncaught Error: Shared module is not available for eager consumption: webpack/sharing/consume/default/faker/faker
+    at Object.__webpack_modules__.<computed> (main.js:829)
+    at __webpack_require__ (main.js:487)
+    at eval (index.js:2)
+    at Module../src/index.js (main.js:464)
+    at __webpack_require__ (main.js:487)
+```
+
+> 那改怎么办呢？ 解决方案在下方 ↓ ↓ ↓
+
+#### Async Script Loading
+
+> 那就把子前端异步加载，这样他就能 import 共享地拿到当前自己所身在容器内的 package 代码了！
+>
+> index.js + bootstrap.js = 👍
+
+```js
+import('./bootstrap');
+```
+
 - Shared Module Versioning
 - Singleton Loading
 - 如果开启了共享组件的版本指定后，在另一个 包 里使用其他版本组件，并设置了 shared ，则控制台会提示无法开启 `单例`
