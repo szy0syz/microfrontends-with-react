@@ -211,3 +211,15 @@ export { mount };
 
 - 在开发环境，直接访问项目地址可以独立渲染
 - 但生产环境，我们只导出挂载函数，又容器本身确定渲染到哪里
+
+### 04 Linking Multiple Apps Together
+
+![017](/images/017.png)
+
+![018](/images/018.png)
+
+Huge Disclaimer
+
+- Some blog posts, articles, videos, etc will tell you todo things differently
+- The architecture for this project is determined by its requirements
+- You need to think about the rquirements of your app to decide if this architecture will work for you
