@@ -223,3 +223,5 @@ Huge Disclaimer
 - Some blog posts, articles, videos, etc will tell you todo things differently
 - The architecture for this project is determined by its requirements
 - You need to think about the rquirements of your app to decide if this architecture will work for you
+
+![019](/images/019.png)
