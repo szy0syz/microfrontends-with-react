@@ -1,1 +1,1 @@
-console.log('Hi there - marketing');
+import('./bootstrap');
