@@ -225,3 +225,5 @@ Huge Disclaimer
 - You need to think about the rquirements of your app to decide if this architecture will work for you
 
 ![019](/images/019.png)
+
+### 05 Generic Ties Between Projects
