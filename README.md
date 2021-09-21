@@ -233,3 +233,5 @@ Huge Disclaimer
 > 为什么我们所有 sub-app 都只对外暴露 `mount` 方法呢？
 >
 > **这台真的太重要了！**
+>
+> **Generic Integration** 通用集成
