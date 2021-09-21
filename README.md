@@ -227,3 +227,9 @@ Huge Disclaimer
 ![019](/images/019.png)
 
 ### 05 Generic Ties Between Projects
+
+#### Why Import the Mount Function?
+
+> 为什么我们所有 sub-app 都只对外暴露 `mount` 方法呢？
+>
+> **这台真的太重要了！**
