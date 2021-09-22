@@ -262,5 +262,17 @@ export default () => {
 };
 ```
 
-- 这样，做了 `通用集成` 后，容器组件完全不管 `Sub-App`到底是什么写的，可以是 `Vue.js`/`Angular.js`等
+- 这样，做了 `通用集成` 后，容器组件完全不管 `Sub-App` 到底是什么写的，可以是 `Vue.js`/`Angular.js`等
 - 这个其实就是后端的 `面向接口编程`
+
+#### Reminder on Shared Modules
+
+因为我们主容器 `Container` 用的是 `React`，而  `Sub-App` 也是一样的用React，这个时候，如果没设置 `包共享` 时，两个 vendor 包里都有有两个重复的 `react` `react-dom` 的包。
+
+所以这个使用，我们可以将 `Sub-App` 包里的 `react` `react-dom` 共享出来，使用 `Container` 的，这样就会大大提高生产包的体积。
+
+![020](/images/020.png)
+
+![021](/images/021.png)
+
+- 通过设置 `shared` 配置后，包体积变小，而且共享包会变成 `游离态`，供大家 `import` 异步加载。

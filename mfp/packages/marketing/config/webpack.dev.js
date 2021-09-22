@@ -18,11 +18,7 @@ const devConfig = {
       exposes: {
         './MarketingApp': './src/bootstrap',
       },
-      // shared: [{
-      //   faker: {
-      //     singleton: true
-      //   }
-      // }],
+      // shared: ['react', 'react-dom'],
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
