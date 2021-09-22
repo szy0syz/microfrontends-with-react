@@ -276,3 +276,7 @@ export default () => {
 ![021](/images/021.png)
 
 - 通过设置 `shared` 配置后，包体积变小，而且共享包会变成 `游离态`，供大家 `import` 异步加载。
+
+#### Delegating Shared Module Selection
+
+> 通过代码自动化代理联邦模块的 shared 配置!
