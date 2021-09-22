@@ -235,3 +235,32 @@ Huge Disclaimer
 > **这台真的太重要了！**
 >
 > **Generic Integration** 通用集成
+
+```ts
+// --> MarketingApp
+export default () => {
+  const ref = useRef(null);
+
+  // 每次父容器刷新时，我也跟着刷新
+  useEffect(() => {
+    mount(ref.current);
+  });
+
+  return <div ref={ref}></div>;
+};
+```
+
+```ts
+export default () => {
+  return (
+    <div>
+      <h1>Hi there!</h1>
+      <hr />
+      <MarketingApp />
+    </div>
+  );
+};
+```
+
+- 这样，做了 `通用集成` 后，容器组件完全不管 `Sub-App`到底是什么写的，可以是 `Vue.js`/`Angular.js`等
+- 这个其实就是后端的 `面向接口编程`
