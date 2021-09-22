@@ -280,3 +280,13 @@ export default () => {
 #### Delegating Shared Module Selection
 
 > 通过代码自动化代理联邦模块的 shared 配置!
+
+### 06 Implementing a CI/CD Pipeline
+
+![022](/images/022.png)
+
+- 我们希望可以独立地部署每一个微前端(包括主容器)
+- 但是 `sub-app` 的 `remoteEntry.js` 文件必须在构建时赋值
+- 许多前端部署解决方案都假设你在部署一个项目--我们需要的是能够处理多个不同项目的解决方案
+- 可能需要某种CI/CD流水线
+- 截止目前，`remoteEntry.js` 是固定的，后期应考虑静态资源缓存问题
